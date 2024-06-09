@@ -1,0 +1,23 @@
+
+package com.example.firstpage
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+
+class detailed_view_screen : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_detailed_view_screen)
+        val screenTime = intent.getIntArrayExtra("screenTime") ?: intArrayOf()
+        val categories = intent.getStringArrayExtra("categories") ?: arrayOf()
+
+        val totalScreenTime = ScreenTime.sum()
+        val averageScreenTime = if (screenTime.isNotEmpty()) totalScreenTime / screenTime.size else 0
+
+        findViewById<TextView>(R.id.totalhjhjjh).text = "Total Daily screen Time: $totalScreenTime minutes"
+        findViewById<TextView>(R.id.hfhfhffh).text = "Average Screen Time:  $averageScreenTime minutes"
+        findViewById<Button>(R.id.hdfhdh).setOnClickListener{
+            finish()
+        }
+    }
+}
